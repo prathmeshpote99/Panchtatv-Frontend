@@ -1,9 +1,9 @@
 import React from 'react';
 import { Container, Col, Row } from 'reactstrap';
 
-import car from "public/images/e-commerce/home/car.svg";
-import call from "public/images/e-commerce/home/headphones.svg";
-import moneyBack from "public/images/e-commerce/home/Sync.svg";
+import car from "public/images/e-commerce/home/carp.svg";
+import call from "public/images/e-commerce/home/headphonesp.svg";
+import moneyBack from "public/images/e-commerce/home/Syncp.svg";
 import s from './InfoBlock.module.scss';
 
 const InfoBlock = () => (

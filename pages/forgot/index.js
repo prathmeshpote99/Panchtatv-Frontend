@@ -85,11 +85,18 @@ class Index extends React.Component {
         </Head>
         <div className="auth-page">
           <Container>
-            <h5 className="auth-logo">
-              <i className="la la-circle text-gray" />
-              Flatlogic Ecommerce
-              <i className="la la-circle text-warning" />
-            </h5>
+            <div className="auth-logo">
+              <Link href="/" legacyBehavior>
+                <a>
+                  <img
+                    src="/images/e-commerce/Panchatatva.png"
+                    alt="Panchtatv Logo"
+                    width={200}
+                    height={50}
+                  />
+                </a>
+              </Link>
+            </div>
             <Widget
               className="widget-auth mx-auto text-center"
               title={<h3 className="mt-0">Forgot password?</h3>}

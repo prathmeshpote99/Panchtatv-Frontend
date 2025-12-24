@@ -22,6 +22,8 @@ import {
   openSidebar,
 } from "redux/actions/navigation";
 import axios from "axios";
+import logo from "public/images/e-commerce/Panchatatva.png";
+import Image from "next/image";
 
 class Header extends React.Component {
   constructor(props) {
@@ -33,7 +35,7 @@ class Header extends React.Component {
       heightTwo: 0,
       heightThree: 0,
       heightFour: 0,
-      innerWidth: typeof window !== "undefined" && window.innerWidth,
+      innerWidth: null,
       count: 0,
     };
   }
@@ -51,21 +53,19 @@ class Header extends React.Component {
   }
 
   componentDidMount() {
-    typeof window !== "undefined" &&
-      window.addEventListener("resize", () => {
-        this.setState({ innerWidth: window.innerWidth });
-      });
+    this.setState({ innerWidth: window.innerWidth });
+
+    window.addEventListener("resize", () => {
+      this.setState({ innerWidth: window.innerWidth });
+    });
+
     if (this.props.currentUser) {
       axios
         .get(`/orders?user=${this.props.currentUser.id}&status=in+cart`)
         .then((res) => {
-          this.setState({
-            count: res.data.count,
-          });
-        })
-        .catch((e) => console.log(e));
-      return;
-    } else if (localStorage.getItem("products") && !this.props.currentUser) {
+          this.setState({ count: res.data.count });
+        });
+    } else if (localStorage.getItem("products")) {
       this.setState({
         count: JSON.parse(localStorage.getItem("products")).length,
       });
@@ -135,8 +135,16 @@ class Header extends React.Component {
           )}
 
           <NavbarBrand>
-            <Link href="/" passHref legacyBehavior>
-              <a className={s.logoStyle}>Flatlogic</a>
+            <Link href="/" legacyBehavior>
+              <a className={s.logoStyle}>
+                <Image
+                  src={logo}
+                  alt="Panchtatv Logo"
+                  width={200}
+                  height={50}
+                  priority
+                />
+              </a>
             </Link>
           </NavbarBrand>
 

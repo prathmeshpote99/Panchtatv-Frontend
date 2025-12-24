@@ -17,11 +17,11 @@ import { registerUser, authError } from "redux/actions/auth";
 import { loginUser } from "redux/actions/auth";
 import microsoft from "public/images/microsoft.png";
 import img from "public/images/e-commerce/register/bg.png";
-import logo from "public/images/e-commerce/logo.svg";
+import logo from "public/images/e-commerce/Panchatatva.png";
 import eye from "public/images/e-commerce/login/eye.png";
 import eyeOff from "public/images/e-commerce/login/eye-off.png";
 import Head from "next/head";
-
+import Image from "next/image";
 import s from "./Register.module.scss";
 
 class Index extends React.Component {
@@ -165,14 +165,18 @@ class Index extends React.Component {
             <Container>
               <Row className={"d-flex justify-content-center"}>
                 <Col lg={8} xs={"auto"}>
-                  <Link href={"/"}>
-                    <img
-                      src={logo}
-                      alt={"logo"}
-                      style={{ marginBottom: 120 }}
-                    />
+                  <Link href="/" legacyBehavior>
+                    <a className={s.logoStyle}>
+                      <Image
+                        src={logo}
+                        alt="Panchtatv Logo"
+                        width={200}
+                        height={50}
+                        priority
+                      />
+                    </a>
                   </Link>
-                  <h5 className={"fw-bold mb-5"}>Sign Up</h5>
+                  <h5 className={"fw-bold mb-5 mt-5"}>Sign Up</h5>
                   <Form className={"w-100"} onSubmit={this.doRegister}>
                     <FormGroup>
                       <Label for="exampleEmail" className="fw-bold">
@@ -257,13 +261,19 @@ class Index extends React.Component {
                     style={{ marginTop: 100 }}
                     className={`d-flex justify-content-between ${s.footer}`}
                   >
-                    <Link href={"#"} className={"fw-bold text-dark"}>
+                    <Link
+                      href="/termsandconditions"
+                      className={"fw-bold text-dark"}
+                    >
                       Terms & Conditions
                     </Link>
-                    <Link href={"#"} className={"fw-bold text-dark"}>
+                    <Link
+                      href="/termsandconditions"
+                      className={"fw-bold text-dark"}
+                    >
                       Privacy Policy
                     </Link>
-                    <Link href={"#"} className={"fw-bold text-dark"}>
+                    <Link href="/contact" className={"fw-bold text-dark"}>
                       Help
                     </Link>
                   </footer>

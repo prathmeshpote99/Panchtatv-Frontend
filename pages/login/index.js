@@ -16,9 +16,10 @@ import {
 import Head from "next/head";
 import { loginUser } from "redux/actions/auth";
 import jwt from "jsonwebtoken";
-import logo from "public/images/e-commerce/logo.svg";
+import logo from "public/images/e-commerce/Panchatatva.png";
 import eye from "public/images/e-commerce/login/eye.png";
 import eyeOff from "public/images/e-commerce/login/eye-off.png";
+import Image from "next/image";
 
 import s from "./Login.module.scss";
 
@@ -42,8 +43,8 @@ class Login extends React.Component {
     super(props);
 
     this.state = {
-      email: "admin@flatlogic.com",
-      password: "admin@123",
+      email: "admin@panchtatv.com",
+      password: "",
     };
 
     this.doLogin = this.doLogin.bind(this);
@@ -151,14 +152,18 @@ class Login extends React.Component {
             <Container>
               <Row className={"d-flex justify-content-center"}>
                 <Col lg={8} xs={"auto"}>
-                  <Link href={"/"}>
-                    <img
-                      src={logo}
-                      alt={"logo"}
-                      style={{ marginBottom: 120 }}
-                    />
+                  <Link href="/" legacyBehavior>
+                    <a className={s.logoStyle}>
+                      <Image
+                        src={logo}
+                        alt="Panchtatv Logo"
+                        width={200}
+                        height={50}                        
+                        priority
+                      />
+                    </a>
                   </Link>
-                  <h5 className={"fw-bold mb-5"}>Login</h5>
+                  <h5 className={"fw-bold mb-5 mt-5"}>Login</h5>
                   <Form className={"w-100"} onSubmit={this.doLogin}>
                     <FormGroup>
                       <Label for="exampleEmail" className="fw-bold">
@@ -201,15 +206,15 @@ class Login extends React.Component {
                     </FormGroup>
                     <div
                       className={
-                        "d-flex justify-content-between align-items-center mt-5"
+                        "d-flex justify-content-start align-items-center mt-5"
                       }
                     >
-                      <Link
+                      {/* <Link
                         href={"/register"}
                         className={"fw-bold text-primary"}
                       >
                         Create an account
-                      </Link>
+                      </Link> */}
                       <Button
                         color={"primary"}
                         className={`${s.button} fw-bold text-uppercase`}
@@ -221,15 +226,15 @@ class Login extends React.Component {
                   <footer
                     className={`d-flex justify-content-between ${s.footer}`}
                   >
-                    <Link href={"#"} className={"fw-bold text-dark"}>
+                    <Link href="/termsandconditions" className={"fw-bold text-dark"}>
                       Terms & Conditions
                     </Link>
-                    <Link href={"#"} className={"fw-bold text-dark"}>
+                    <Link href="/termsandconditions" className={"fw-bold text-dark"}>
                       Privacy Policy
                     </Link>
-                    <Link href={"/forgot"} className={"fw-bold text-dark"}>
+                    {/* <Link href={"/forgot"} className={"fw-bold text-dark"}>
                       Forgot password
-                    </Link>
+                    </Link> */}
                   </footer>
                 </Col>
               </Row>

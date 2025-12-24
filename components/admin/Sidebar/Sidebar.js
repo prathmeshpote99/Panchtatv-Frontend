@@ -11,7 +11,8 @@ import {
 } from "redux/actions/navigation";
 import isScreen from "core/screenHelper";
 import { logoutUser } from "redux/actions/auth";
-
+import Image from "next/image";
+import logo from "public/images/e-commerce/Panchatatva.png";
 import HomeIcon from "public/images/e-commerce/sidebar/home";
 import DownloadIcon from "public/images/e-commerce/sidebar/download";
 import BarIcon from "public/images/e-commerce/sidebar/bar";
@@ -84,9 +85,17 @@ class Sidebar extends React.Component {
           className={s.root}
         >
           <header className={s.logo}>
-            <span className={`${s.logoStyle} mx-1`}>
+            {/* <span className={`${s.logoStyle} mx-1`}>
               Flatlogic<i>.</i>
-            </span>
+            </span> */}
+            <Image
+              className={`${s.logoStyle}`}
+              src={logo}
+              alt="Panchtatv Logo"
+              width={150}
+              height={40}
+              priority
+            />
           </header>
 
           <ul className={s.nav}>

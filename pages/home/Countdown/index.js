@@ -6,10 +6,10 @@ const Countdown = () => {
     new Date("12/25/2021").getTime()
   );
   const [state, setState] = useState({
-    days: 0,
-    hours: 0,
-    minutes: 0,
-    seconds: 0,
+    days: 5,
+    hours: 12,
+    minutes: 26,
+    seconds: 30,
   });
 
   useEffect(() => {

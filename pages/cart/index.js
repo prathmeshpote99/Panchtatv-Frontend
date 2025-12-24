@@ -7,11 +7,13 @@ import { useSelector } from "react-redux";
 import axios from "axios";
 import Head from "next/head";
 import { toast, ToastContainer } from "react-toastify";
+import { useRouter } from "next/router";
 
 const Index = () => {
   const currentUser = useSelector((store) => store.auth.currentUser);
   const [products, setProducts] = React.useState([]);
   const [totalPrice, setTotalPrice] = React.useState(0);
+  const router = useRouter();
 
   React.useEffect(() => {
     if (currentUser) {
@@ -91,6 +93,15 @@ const Index = () => {
       localStorage.setItem("products", JSON.stringify(products));
       setProducts(JSON.parse(localStorage.getItem("products")));
     }
+  };
+
+  const handleCheckout = () => {
+    if (!currentUser) {
+      toast.warning("Please login first to continue checkout");
+      return;
+    }
+
+    router.push("/billing");
   };
 
   const increaseQuantity = (index) => {
@@ -289,14 +300,13 @@ const Index = () => {
               </h5>
               <h5 className={"fw-bold"}>{totalPrice}$</h5>
             </div>
-            <Link href={"/billing"}>
-              <Button
-                color={"primary"}
-                className={`${s.checkOutBtn} text-uppercase mt-auto fw-bold`}
-              >
-                Check out
-              </Button>
-            </Link>
+            <Button
+              color="primary"
+              className={`${s.checkOutBtn} text-uppercase mt-auto fw-bold`}
+              onClick={handleCheckout}
+            >
+              Check out
+            </Button>
           </section>
         </Col>
       </Row>

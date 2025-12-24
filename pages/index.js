@@ -6,7 +6,7 @@ import axios from "axios";
 import Carousel from "react-bootstrap/Carousel";
 import Head from "next/head";
 
-import arrowRight from "public/images/e-commerce/home/arrow-right.svg";
+import arrowRight from "public/images/e-commerce/home/arrow-rightp.svg";
 
 import InfoBlock from "components/e-commerce/InfoBlock";
 import InstagramWidget from "components/e-commerce/Instagram";
@@ -211,7 +211,7 @@ const Index = ({ products: serverSideProducts }) => {
                     Pure Wellness from Nature
                   </p>
                   {/* <h2 className={"mb-2"}>get all</h2> */}
-                  <h1 className={"text-uppercase fw-bold mt-1"}>
+                  <h1 className={"text-uppercase fw-bold mt-1 w-75"}>
                     Organic powders crafted with care for everyday health
                   </h1>
                   <Link href={"/shop"}>
@@ -253,7 +253,7 @@ const Index = ({ products: serverSideProducts }) => {
                     From Farm to You
                   </p>
                   {/* <h2 className={"mb-2"}>get all</h2> */}
-                  <h1 className={"text-uppercase fw-bold mt-1"}>
+                  <h1 className={"text-uppercase fw-bold mt-1 w-75"}>
                     Ethically sourced • Gently processed • 100% Natural
                   </h1>
                   <Link href={"/shop"}>
@@ -295,7 +295,7 @@ const Index = ({ products: serverSideProducts }) => {
                     Ancient Ayurveda. Modern Lifestyle.
                   </p>
                   {/* <h2 className={"mb-2"}>get all</h2> */}
-                  <h1 className={"text-uppercase fw-bold mt-1"}>
+                  <h1 className={"text-uppercase fw-bold mt-1 w-75"}>
                     Fuel your body with Panchtatv’s organic goodness
                   </h1>
                   <Link href={"/shop"}>

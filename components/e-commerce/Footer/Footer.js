@@ -2,8 +2,8 @@ import React from "react";
 import s from "./Footer.module.scss";
 import { Container, Row, Col, Input, Button } from "reactstrap";
 import Link from "next/link";
-
-import logo from "public/images/e-commerce/logo-white.svg";
+import Image from "next/image";
+import logo from "public/images/e-commerce/Panchatatva_White.png";
 import Google from "public/images/e-commerce/Google";
 import Twitter from "public/images/e-commerce/Twitter";
 import Linkedin from "public/images/e-commerce/Linkedin";
@@ -45,7 +45,17 @@ const Footer = () => {
             className="d-flex flex-column justify-content-between"
           >
             <div>
-              <img alt="logo" src={logo} className="mb-4" />
+              <Link href="/" legacyBehavior>
+                <a className={s.logoStyle}>
+                  <Image
+                    src={logo}
+                    alt="Panchtatv Logo"
+                    width={200}
+                    height={50}
+                    priority
+                  />
+                </a>
+              </Link>
               <p className="text-white fw-thin mb-0">
                 Panchtatv brings you pure, organic powders inspired by Ayurveda
                 and backed by mindful sourcing. We believe in clean nutrition,
@@ -66,7 +76,7 @@ const Footer = () => {
               </Link>
 
               <Link
-                href="https://twitter.com/flatlogic"
+                href="https://twitter.com/panchatatva"
                 passHref
                 legacyBehavior
               >
@@ -80,7 +90,7 @@ const Footer = () => {
               </Link>
 
               <Link
-                href="https://www.linkedin.com/company/flatlogic/"
+                href="https://www.linkedin.com/company/panchatatva/"
                 passHref
                 legacyBehavior
               >
@@ -94,7 +104,7 @@ const Footer = () => {
               </Link>
 
               <Link
-                href="https://www.facebook.com/flatlogic/"
+                href="https://www.facebook.com/panchatatva/"
                 passHref
                 legacyBehavior
               >
@@ -122,11 +132,11 @@ const Footer = () => {
                   </a>
                 </Link>
 
-                <Link href="/shop" passHref legacyBehavior>
+                {/* <Link href="/shop" passHref legacyBehavior>
                   <a className={`${s.navigationLink} mb-3 d-block`}>
                     Available Services
                   </a>
-                </Link>
+                </Link> */}
 
                 <Link href="/faq" passHref legacyBehavior>
                   <a className={`${s.navigationLink} mb-3 d-block`}>FAQs</a>
@@ -142,13 +152,13 @@ const Footer = () => {
                   <a className={`${s.navigationLink} mb-3 d-block`}>Sign In</a>
                 </Link>
 
-                <Link href="/cart" passHref legacyBehavior>
+                {/* <Link href="/cart" passHref legacyBehavior>
                   <a className={`${s.navigationLink} mb-3 d-block`}>
                     View Cart
                   </a>
-                </Link>
+                </Link> */}
 
-                <Link href="/faq" passHref legacyBehavior>
+                <Link href="/contact" passHref legacyBehavior>
                   <a className={`${s.navigationLink} mb-3 d-block`}>
                     Help & Support
                   </a>

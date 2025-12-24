@@ -13,7 +13,7 @@ import axios from "axios";
 import { ToastContainer, toast } from "react-toastify";
 import Head from "next/head";
 import InstagramWidget from "components/e-commerce/Instagram";
-import arrowRight from "../../public/images/e-commerce/home/arrow-right.svg";
+import arrowRight from "../../public/images/e-commerce/home/arrow-rightp.svg";
 import rating from "../../public/images/e-commerce/details/stars.svg";
 import productsListActions from "../../redux/actions/products/productsListActions";
 
@@ -253,7 +253,8 @@ const Index = () => {
                 icon={
                   <div
                     style={{
-                      backgroundColor: "#bd744c",
+                      // backgroundColor: "#bd744c",
+                      backgroundColor: "#6d1e4d",
                       borderRadius: 2,
                       padding: 4,
                     }}
@@ -275,7 +276,8 @@ const Index = () => {
                 icon={
                   <div
                     style={{
-                      backgroundColor: "#bd744c",
+                      // backgroundColor: "#bd744c",
+                      backgroundColor: "#6d1e4d",
                       borderRadius: 2,
                       padding: 4,
                     }}
@@ -297,7 +299,8 @@ const Index = () => {
                 icon={
                   <div
                     style={{
-                      backgroundColor: "#bd744c",
+                      // backgroundColor: "#bd744c",
+                      backgroundColor: "#6d1e4d",
                       borderRadius: 2,
                       padding: 4,
                     }}
@@ -319,7 +322,8 @@ const Index = () => {
                 icon={
                   <div
                     style={{
-                      backgroundColor: "#bd744c",
+                      // backgroundColor: "#bd744c",
+                      backgroundColor: "#6d1e4d",
                       borderRadius: 2,
                       padding: 4,
                     }}
@@ -341,7 +345,8 @@ const Index = () => {
                 icon={
                   <div
                     style={{
-                      backgroundColor: "#bd744c",
+                      // backgroundColor: "#bd744c",
+                      backgroundColor: "#6d1e4d",
                       borderRadius: 2,
                       padding: 4,
                     }}
@@ -365,7 +370,8 @@ const Index = () => {
                 icon={
                   <div
                     style={{
-                      backgroundColor: "#bd744c",
+                      // backgroundColor: "#bd744c",
+                      backgroundColor: "#6d1e4d",
                       borderRadius: 2,
                       padding: 4,
                     }}
@@ -387,7 +393,8 @@ const Index = () => {
                 icon={
                   <div
                     style={{
-                      backgroundColor: "#bd744c",
+                      // backgroundColor: "#bd744c",
+                      backgroundColor: "#6d1e4d",
                       borderRadius: 2,
                       padding: 4,
                     }}
@@ -420,7 +427,8 @@ const Index = () => {
                 icon={
                   <div
                     style={{
-                      backgroundColor: "#bd744c",
+                      // backgroundColor: "#bd744c",
+                      backgroundColor: "#6d1e4d",
                       borderRadius: 2,
                       padding: 4,
                     }}
@@ -442,7 +450,8 @@ const Index = () => {
                 icon={
                   <div
                     style={{
-                      backgroundColor: "#bd744c",
+                      // backgroundColor: "#bd744c",
+                      backgroundColor: "#6d1e4d",
                       borderRadius: 2,
                       padding: 4,
                     }}
@@ -466,7 +475,8 @@ const Index = () => {
                 icon={
                   <div
                     style={{
-                      backgroundColor: "#bd744c",
+                      // backgroundColor: "#bd744c",
+                      backgroundColor: "#6d1e4d",
                       borderRadius: 2,
                       padding: 4,
                     }}
@@ -488,7 +498,8 @@ const Index = () => {
                 icon={
                   <div
                     style={{
-                      backgroundColor: "#bd744c",
+                      // backgroundColor: "#bd744c",
+                      backgroundColor: "#6d1e4d",
                       borderRadius: 2,
                       padding: 4,
                     }}
@@ -511,7 +522,8 @@ const Index = () => {
                 icon={
                   <div
                     style={{
-                      backgroundColor: "#bd744c",
+                      // backgroundColor: "#bd744c",
+                      backgroundColor: "#6d1e4d",
                       borderRadius: 2,
                       padding: 4,
                     }}
@@ -533,7 +545,8 @@ const Index = () => {
                 icon={
                   <div
                     style={{
-                      backgroundColor: "#bd744c",
+                      // backgroundColor: "#bd744c",
+                      backgroundColor: "#6d1e4d",
                       borderRadius: 2,
                       padding: 4,
                     }}

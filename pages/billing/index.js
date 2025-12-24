@@ -12,7 +12,7 @@ import {
 } from "reactstrap";
 import Link from "next/link";
 import s from "./Billing.module.scss";
-import heartIcon from "public/images/e-commerce/heart.svg";
+import heartIcon from "public/images/e-commerce/heartp.svg";
 import axios from "axios";
 import { toast, ToastContainer } from "react-toastify";
 import countryList from "react-select-country-list";
@@ -366,7 +366,8 @@ const Index = ({ isScriptLoaded, isScriptLoadSucceed }) => {
                     icon={
                       <div
                         style={{
-                          backgroundColor: "#bd744c",
+                          // backgroundColor: "#bd744c",
+                          backgroundColor: "#6d1e4d",
                           borderRadius: 2,
                           padding: 4,
                         }}
