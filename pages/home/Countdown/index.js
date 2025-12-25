@@ -1,92 +1,81 @@
-import React, { useState, useEffect } from "react";
+import React, { useEffect, useRef, useState } from "react";
+import { gsap } from "gsap";
 import s from "../../index.module.scss";
 
+const TARGET_DATE = new Date("2025-12-31T23:59:59").getTime();
+
 const Countdown = () => {
-  const [countdownDate, setCountdownDate] = useState(
-    new Date("12/25/2021").getTime()
-  );
-  const [state, setState] = useState({
-    days: 5,
-    hours: 12,
-    minutes: 26,
-    seconds: 30,
+  const [time, setTime] = useState({
+    days: "00",
+    hours: "00",
+    minutes: "00",
+    seconds: "00",
   });
 
-  useEffect(() => {
-    setNewTime();
-  }, []);
-
-  const setNewTime = () => {
-    let countdownInterval = setInterval(() => {
-      if (countdownDate > new Date().getTime()) {
-        const currentTime = new Date().getTime();
-
-        const distanceToDate = countdownDate - currentTime;
-
-        let days = Math.floor(distanceToDate / (1000 * 60 * 60 * 24));
-        let hours = Math.floor(
-          (distanceToDate % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)
-        );
-        let minutes = Math.floor(
-          (distanceToDate % (1000 * 60 * 60)) / (1000 * 60)
-        );
-        let seconds = Math.floor((distanceToDate % (1000 * 60)) / 1000);
-
-        const numbersToAddZeroTo = [1, 2, 3, 4, 5, 6, 7, 8, 9];
-
-        days = `${days}`;
-        if (numbersToAddZeroTo.includes(hours)) {
-          hours = `0${hours}`;
-        } else if (numbersToAddZeroTo.includes(minutes)) {
-          minutes = `0${minutes}`;
-        } else if (numbersToAddZeroTo.includes(seconds)) {
-          seconds = `0${seconds}`;
-        }
-        // console.log(state.days, state.hours, state.minutes, state.seconds)
-        setState({ days: days, hours: hours, minutes, seconds });
-      } else {
-        clearInterval(countdownInterval);
-      }
-    }, 1000);
+  const prevTime = useRef(time);
+  const refs = {
+    days: useRef(null),
+    hours: useRef(null),
+    minutes: useRef(null),
+    seconds: useRef(null),
   };
 
+  useEffect(() => {
+    const updateTime = () => {
+      const now = Date.now();
+      const diff = TARGET_DATE - now;
+      if (diff <= 0) return;
+
+      const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+      const hours = Math.floor((diff / (1000 * 60 * 60)) % 24);
+      const minutes = Math.floor((diff / (1000 * 60)) % 60);
+      const seconds = Math.floor((diff / 1000) % 60);
+
+      setTime({
+        days: String(days).padStart(2, "0"),
+        hours: String(hours).padStart(2, "0"),
+        minutes: String(minutes).padStart(2, "0"),
+        seconds: String(seconds).padStart(2, "0"),
+      });
+    };
+
+    updateTime();
+    const interval = setInterval(updateTime, 1000);
+    return () => clearInterval(interval);
+  }, []);
+
+  // Animate only changed values
+  useEffect(() => {
+    Object.keys(time).forEach((key) => {
+      if (time[key] !== prevTime.current[key]) {
+        gsap.fromTo(
+          refs[key].current,
+          { y: 10, opacity: 0 },
+          { y: 0, opacity: 1, duration: 0.35, ease: "power2.out" }
+        );
+      }
+    });
+
+    prevTime.current = time;
+  }, [time]);
+
+  const Item = ({ label, value, refProp }) => (
+    <section className={s.promo__indication__block}>
+      <h5 ref={refProp} className="mb-0">
+        {value}
+      </h5>
+      <p className="mb-0">{label}</p>
+    </section>
+  );
+
   return (
-    <div className={`${s.promo__indication}`}>
-      <section className={s.promo__indication__block}>
-        <h5 className={"mb-0"}>
-          {parseInt(state.days) < 0 ? "0" : state.days}
-        </h5>
-        <p className={"mb-0"}>days</p>
-      </section>
-      <section className={s.promo__indication__block}>
-        <h5 className={"mb-0"}>
-          {parseInt(state.hours) < 0 ? "0" : state.hours}
-        </h5>
-        <p className={"mb-0"}>hours</p>
-      </section>
-      <section className={s.promo__indication__block}>
-        <h5 className={"mb-0"}>
-          {parseInt(state.minutes) < 0 ? "0" : state.minutes}
-        </h5>
-        <p className={"mb-0"}>mins</p>
-      </section>
-      <section className={s.promo__indication__block}>
-        <h5 className={"mb-0"}>
-          {parseInt(state.seconds) < 0 ? "0" : state.seconds}
-        </h5>
-        <p className={"mb-0"}>secs</p>
-      </section>
+    <div className={s.promo__indication}>
+      <Item label="days" value={time.days} refProp={refs.days} />
+      <Item label="hours" value={time.hours} refProp={refs.hours} />
+      <Item label="mins" value={time.minutes} refProp={refs.minutes} />
+      <Item label="secs" value={time.seconds} refProp={refs.seconds} />
     </div>
   );
 };
-
-export async function getServerSideProps(context) {
-  // const res = await axios.get("/products");
-  // const products = res.data.rows;
-
-  return {
-    props: {}, // will be passed to the page component as props
-  };
-}
 
 export default Countdown;

@@ -9,6 +9,9 @@ import Head from "next/head";
 import arrowRight from "public/images/e-commerce/home/arrow-rightp.svg";
 
 import InfoBlock from "components/e-commerce/InfoBlock";
+import NewArrivals from "components/e-commerce/NewArrivals";
+import TopSellingProducts from "components/e-commerce/TopSellingProducts";
+import FromOurBlogs from "components/e-commerce/FromOurBlogs";
 import InstagramWidget from "components/e-commerce/Instagram";
 import article1 from "public/images/e-commerce/home/article1.jpg";
 import article2 from "public/images/e-commerce/home/article2.jpg";
@@ -17,7 +20,6 @@ import article3 from "public/images/e-commerce/home/article3.jpg";
 import { toast, ToastContainer } from "react-toastify";
 import { useDispatch, useSelector } from "react-redux";
 
-import Countdown from "./home/Countdown";
 import rating from "../public/images/e-commerce/details/stars.svg";
 import productsListActions from "../redux/actions/products/productsListActions";
 
@@ -157,6 +159,30 @@ const Index = ({ products: serverSideProducts }) => {
     secsInterval();
   }, []);
 
+  const HERO_SLIDES = [
+    {
+      id: 1,
+      className: "firstImg",
+      interval: 1000,
+      tag: "Pure Wellness from Nature",
+      title: "Organic powders crafted with care for everyday health",
+    },
+    {
+      id: 2,
+      className: "secondImg",
+      interval: 3000,
+      tag: "From Farm to You",
+      title: "Ethically sourced • Gently processed • 100% Natural",
+    },
+    {
+      id: 3,
+      className: "thirdImg",
+      interval: 5000,
+      tag: "Ancient Ayurveda. Modern Lifestyle.",
+      title: "Fuel your body with Panchtatv’s organic goodness",
+    },
+  ];
+
   return (
     <>
       <Head>
@@ -197,570 +223,73 @@ const Index = ({ products: serverSideProducts }) => {
       </Head>
       <ToastContainer />
       <Carousel prevLabel="prev" nextLabel="next">
-        <Carousel.Item interval={1000}>
-          <section className={`${s.carousel} ${s.firstImg}`}>
-            <Container className={"h-100"}>
-              <Row className={"h-100"}>
-                <Col
-                  sm={12}
-                  className={
-                    "h-100 d-flex flex-column justify-content-center align-items-center align-items-md-start"
-                  }
-                >
-                  <p className={"text-uppercase text-primary fw-bold mb-2"}>
-                    Pure Wellness from Nature
-                  </p>
-                  {/* <h2 className={"mb-2"}>get all</h2> */}
-                  <h1 className={"text-uppercase fw-bold mt-1 w-75"}>
-                    Organic powders crafted with care for everyday health
-                  </h1>
-                  <Link href={"/shop"}>
-                    {typeof window !== "undefined" &&
-                    window.innerWidth <= 768 ? (
-                      <Button
-                        color="primary"
-                        className={"text-uppercase mt-4 fw-bold"}
-                      >
-                        view more
-                      </Button>
-                    ) : (
-                      <Button
-                        outline
-                        color="primary"
-                        className={`text-uppercase mt-4 mr-auto fw-bold d-flex align-items-center ${s.viewMoreBtn}`}
-                      >
-                        <p className={"mb-0"}>view more</p>{" "}
-                        <div className={`ml-2 ${s.arrowRight}`} />
-                      </Button>
-                    )}
-                  </Link>
-                </Col>
-              </Row>
-            </Container>
-          </section>
-        </Carousel.Item>
-        <Carousel.Item interval={3000}>
-          <section className={`${s.carousel} ${s.secondImg}`}>
-            <Container className={"h-100"}>
-              <Row className={"h-100"}>
-                <Col
-                  sm={12}
-                  className={
-                    "h-100 d-flex flex-column justify-content-center align-items-center align-items-md-start"
-                  }
-                >
-                  <p className={"text-uppercase text-primary fw-bold mb-2"}>
-                    From Farm to You
-                  </p>
-                  {/* <h2 className={"mb-2"}>get all</h2> */}
-                  <h1 className={"text-uppercase fw-bold mt-1 w-75"}>
-                    Ethically sourced • Gently processed • 100% Natural
-                  </h1>
-                  <Link href={"/shop"}>
-                    {typeof window !== "undefined" &&
-                    window.innerWidth <= 768 ? (
-                      <Button
-                        color="primary"
-                        className={"text-uppercase mt-4 fw-bold"}
-                      >
-                        view more
-                      </Button>
-                    ) : (
-                      <Button
-                        outline
-                        color="primary"
-                        className={`text-uppercase mt-4 mr-auto fw-bold d-flex align-items-center ${s.viewMoreBtn}`}
-                      >
-                        <p className={"mb-0"}>view more</p>{" "}
-                        <div className={`ml-2 ${s.arrowRight}`} />
-                      </Button>
-                    )}
-                  </Link>
-                </Col>
-              </Row>
-            </Container>
-          </section>
-        </Carousel.Item>
-        <Carousel.Item interval={5000}>
-          <section className={`${s.carousel} ${s.thirdImg}`}>
-            <Container className={"h-100"}>
-              <Row className={"h-100"}>
-                <Col
-                  sm={12}
-                  className={
-                    "h-100 d-flex flex-column justify-content-center align-items-center align-items-md-start"
-                  }
-                >
-                  <p className={"text-uppercase text-primary fw-bold mb-2"}>
-                    Ancient Ayurveda. Modern Lifestyle.
-                  </p>
-                  {/* <h2 className={"mb-2"}>get all</h2> */}
-                  <h1 className={"text-uppercase fw-bold mt-1 w-75"}>
-                    Fuel your body with Panchtatv’s organic goodness
-                  </h1>
-                  <Link href={"/shop"}>
-                    {typeof window !== "undefined" &&
-                    window.innerWidth <= 768 ? (
-                      <Button
-                        color="primary"
-                        className={"text-uppercase mt-4 fw-bold"}
-                      >
-                        view more
-                      </Button>
-                    ) : (
-                      <Button
-                        outline
-                        color="primary"
-                        className={`text-uppercase mt-4 mr-auto fw-bold d-flex align-items-center ${s.viewMoreBtn}`}
-                      >
-                        <p className={"mb-0"}>view more</p>{" "}
-                        <div className={`ml-2 ${s.arrowRight}`} />
-                      </Button>
-                    )}
-                  </Link>
-                </Col>
-              </Row>
-            </Container>
-          </section>
-        </Carousel.Item>
-      </Carousel>
-      <Container style={{ marginTop: 80, marginBottom: 80 }}>
-        <h3 className={`text-center fw-bold mb-4`}>New Arrivals</h3>
-        <Row className={"justify-content-center mb-2"}>
-          <Col sm={8}>
-            <p className={"text-center text-muted mb-4"}>
-              Discover our newest collection of freshly prepared organic
-              powders, made to preserve natural nutrients and purity. Each
-              product is thoughtfully crafted to support your daily
-              wellness—naturally and effectively.
-            </p>
-          </Col>
-        </Row>
-        <Row>
-          {products.map((item, index) => (
-            <Col
-              sm={6}
-              md={3}
-              xs={12}
-              className={`mb-4 ${s.product}`}
-              key={index}
+        {HERO_SLIDES.map((slide) => (
+          <Carousel.Item key={slide.id} interval={slide.interval}>
+            <section
+              className={`${s.carousel} ${s[slide.className]} ${s.parallax}`}
             >
-              <Modal
-                isOpen={openState[`open${index}`]}
-                toggle={() => dispatch({ type: `open${index}` })}
-              >
-                <div className={s.modalWidndow}>
-                  <div className={s.image}>
-                    <img
-                      src={item.image[0]?.publicUrl}
-                      width={"100%"}
-                      height={"100%"}
-                      alt="img"
-                    />
-                  </div>
-                  <div
-                    className={`${s.content} p-4 d-flex flex-column justify-content-between`}
+              <Container className="h-100">
+                <Row className="h-100">
+                  <Col
+                    sm={12}
+                    className="h-100 d-flex flex-column justify-content-center align-items-center align-items-md-start"
                   >
-                    <Link href={`/products/${item.id}`}>
-                      <a className={"fw-semi-bold"}>
-                        More about product
-                        <img
-                          src={arrowRight}
-                          alt={"arrow"}
-                          className={"ml-2"}
-                        />
-                      </a>
-                    </Link>
-                    <h6 className={`text-muted`}>
-                      {item.categories[0].title[0].toUpperCase() +
-                        item.categories[0].title.slice(1)}
-                    </h6>
-                    <h4 className={"fw-bold"}>{item.title}</h4>
-                    <div className={"d-flex align-items-center"}>
-                      <img src={rating} alt={"rating"} />
-                      <p className={"text-primary ml-3 mb-0"}>12 reviews</p>
-                    </div>
-                    <p>
-                      Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                      In ut ullamcorper leo, eget euismod orci. Cum sociis
-                      natoque penatibus et magnis dis parturient montes,
-                      nascetur ridiculus mus. Vestibulum ultricies aliquam.
+                    <p className="text-uppercase text-primary fw-bold mb-2">
+                      {slide.tag}
                     </p>
-                    <div className={"d-flex"}>
-                      <div
-                        className={
-                          "d-flex flex-column mr-5 justify-content-between"
-                        }
-                      >
-                        <h6 className={"fw-bold text-muted text-uppercase"}>
-                          Quantity
-                        </h6>
-                        <div className={"d-flex align-items-center"}>
-                          <Button
-                            className={`bg-transparent border-0 p-1 fw-bold mr-3 ${s.quantityBtn}`}
-                            onClick={() => {
-                              if (quantity === 1) return;
-                              setQuantity((prevState) => prevState - 1);
-                            }}
-                          >
-                            -
-                          </Button>
-                          <p className={"fw-bold mb-0"}>{quantity}</p>
-                          <Button
-                            className={`bg-transparent border-0 p-1 fw-bold ml-3 ${s.quantityBtn}`}
-                            onClick={() => {
-                              if (quantity < 1) return;
-                              setQuantity((prevState) => prevState + 1);
-                            }}
-                          >
-                            +
-                          </Button>
-                        </div>
-                      </div>
-                      <div
-                        className={"d-flex flex-column justify-content-between"}
-                      >
-                        <h6 className={"fw-bold text-muted text-uppercase"}>
-                          Price
-                        </h6>
-                        <h6 className={"fw-bold"}>{item.price}$</h6>
-                      </div>
-                    </div>
-                    <div className={"d-flex mt-5"}>
-                      <Button
-                        outline
-                        color={"primary"}
-                        className={"flex-fill mr-4 text-uppercase fw-bold"}
-                        style={{ width: "50%" }}
-                        onClick={() => {
-                          toast.info(
-                            "products successfully added to your cart"
-                          );
-                          addToCart();
-                        }}
-                      >
-                        Add to Cart
-                      </Button>
-                      <Link
-                        href={"/billing"}
-                        className={"d-inline-block flex-fill"}
-                      >
+
+                    <h1 className="text-uppercase fw-bold mt-1 w-75">
+                      {slide.title}
+                    </h1>
+
+                    <Link href="/shop">
+                      {typeof window !== "undefined" &&
+                      window.innerWidth <= 768 ? (
                         <Button
-                          color={"primary"}
-                          className={"text-uppercase fw-bold"}
-                          style={{ width: "50%" }}
+                          color="primary"
+                          className="text-uppercase mt-4 fw-bold"
                         >
-                          Buy now
+                          view more
                         </Button>
-                      </Link>
-                    </div>
-                  </div>
-                </div>
-              </Modal>
-              <div style={{ position: "relative" }}>
-                <Link href={`/products/${item.id}`}>
-                  <a>
-                    <div
-                      style={{
-                        background: `url(${item.image[0]?.publicUrl}) no-repeat center`,
-                        backgroundSize: "contain",
-                        transition: "all .65s ease",
-                      }}
-                      className={s.productImage}
-                    />
-                  </a>
-                </Link>
-                <div
-                  className={`d-flex flex-column justify-content-center ${s.product__actions}`}
-                  style={{
-                    position: "absolute",
-                    height: "100%",
-                    top: 0,
-                    right: 15,
-                  }}
-                >
-                  <Button
-                    className={"p-0 bg-transparent border-0"}
-                    onClick={() => {
-                      addToWishlist(item.id);
-                      toast.info(
-                        "products successfully added to your wishlist"
-                      );
-                    }}
-                  >
-                    <div className={`mb-4 ${s.product__actions__heart}`} />
-                  </Button>
-                  <Button
-                    className={"p-0 bg-transparent border-0"}
-                    onClick={() => {
-                      dispatch({ type: `open${index}` });
-                    }}
-                  >
-                    <div className={`mb-4 ${s.product__actions__max}`} />
-                  </Button>
-                  <Button
-                    className={"p-0 bg-transparent border-0"}
-                    onClick={() => {
-                      addToCart(item.id);
-                      toast.info("products successfully added to your cart");
-                    }}
-                  >
-                    <div className={`mb-4 ${s.product__actions__cart}`} />
-                  </Button>
-                </div>
-              </div>
-              <div className={s.productInfo}>
-                <div>
-                  <Link href={`/category/${item.categories[0].id}`}>
-                    <a className={"mt-3 text-muted mb-0 d-inline-block"}>
-                      {item.categories[0].title[0].toUpperCase() +
-                        item.categories[0].title.slice(1)}
-                    </a>
-                  </Link>
-                  <Link href={`/products/${item.id}`}>
-                    <a>
-                      <h6
-                        className={"fw-bold font-size-base mt-1"}
-                        style={{ fontSize: 16 }}
-                      >
-                        {item.title}
-                      </h6>
-                    </a>
-                  </Link>
-                  <h6 style={{ fontSize: 16 }}>${item.price}</h6>
-                </div>
-              </div>
-            </Col>
-          ))}
-        </Row>
-        <Row className={"d-flex justify-content-center"}>
-          <Link href={"/shop"}>
-            <Button
-              outline
-              color="primary"
-              className={"text-uppercase mx-auto mt-5 fw-bold"}
-            >
-              view more
-            </Button>
-          </Link>
-        </Row>
-      </Container>
-      <section className={s.promo}>
-        <Container className={"h-100"}>
-          <Row className={"h-100"}>
-            <Col
-              md={6}
-              xs={12}
-              className={
-                "h-100 d-flex flex-column justify-content-center align-items-center align-items-md-start"
-              }
-            >
-              <h5 className={"text-uppercase fw-bold mb-3"}>
-                news and inspiration
-              </h5>
-              <h1
-                className={`text-uppercase fw-bold mb-0 ${s.newArrivals}`}
-                style={{ fontSize: 50 }}
-              >
-                new arrivals
-              </h1>
-              <div
-                className={`${s.stroke} mt-4`}
-                style={{ marginBottom: 30 }}
-              />
-              <Countdown />
-              <section className={"d-flex mt-5 align-itens-center"}>
-                <h2
-                  className={"text-muted mr-3 mb-0 d-flex align-items-center"}
-                >
-                  <del>$ 140,56</del>
-                </h2>
-                <h1 className={"text-primary fw-bold mb-0"}>$ 70</h1>
-              </section>
-            </Col>
-          </Row>
-        </Container>
-      </section>
-      <Container style={{ marginTop: 80, marginBottom: 80 }}>
-        <h3 className={"text-center fw-bold mb-4"}>Top Selling Products</h3>
-        <Row className={"justify-content-center mb-2"}>
-          <Col sm={8}>
-            <p className={"text-center text-muted mb-4"}>
-              Our most trusted and loved organic powders, chosen by customers
-              for their quality and results. Experience the perfect balance of
-              tradition, purity, and modern nutrition.
-            </p>
-          </Col>
-        </Row>
-        <Row>
-          <Col xs={12} md={6}>
-            <Link href={"/products/afaf98d5-4060-4408-967b-c4f4af3d1869"}>
-              <a>
-                <section className={`${s.top_first} img-fluid`}>
-                  <h6 className={"text-uppercase text-primary fw-bold"}>
-                    All new
-                  </h6>
-                  <h2 className={"fw-bold"}>SPRING THINGS</h2>
-                  <div className={s.stroke} />
-                  <h6 className={"text-muted mt-4"}>Save up to 30%</h6>
-                </section>
-              </a>
-            </Link>
-          </Col>
-          <Col xs={12} md={6}>
-            <Row>
-              <Col xs={12} md={6} className={s.topMargin}>
-                <Link href="/products/afaf98d5-4060-4408-967b-c4f4af3d1862">
-                  <a>
-                    <div className={`${s.top2} img-fluid`}>
-                      <div>
-                        <h6 className={"text-primary fw-bold"}>
-                          Online Exclusive
-                        </h6>
-                        <p>
-                          <u>shop now</u>
-                        </p>
-                      </div>
-                    </div>
-                  </a>
-                </Link>
-                <Link href="/products/afaf98d5-4060-4408-967b-c4f4af3d1863">
-                  <a>
-                    <div className={`${s.top4} img-fluid`}>
-                      <div className={`${s.label}`}>
-                        <h6
-                          className={"fw-bold text-uppercase mb-0 text-white"}
+                      ) : (
+                        <Button
+                          outline
+                          color="primary"
+                          className={`text-uppercase mt-4 mr-auto fw-bold d-flex align-items-center ${s.viewMoreBtn}`}
                         >
-                          spring sale
-                        </h6>
-                      </div>
-                    </div>
-                  </a>
-                </Link>
-              </Col>
-              <Col xs={12} md={6}>
-                <Link href="/products/afaf98d5-4060-4408-967b-c4f4af3d1864">
-                  <div className={`${s.top3} img-fluid`}>
-                    <div className={`${s.label}`}>
-                      <h6 className={"fw-bold text-uppercase mb-0 text-white"}>
-                        70% SALE
-                      </h6>
-                    </div>
-                  </div>
-                </Link>
-                <Link href="/products/afaf98d5-4060-4408-967b-c4f4af3d1865">
-                  <div className={`${s.top5} img-fluid`}>
-                    <div>
-                      <div className={s.stroke} />
-                      <div>
-                        <p className={"mb-0"}>collection</p>
-                        <h5 className={"fw-bold text-primary text-uppercase"}>
-                          summer
-                        </h5>
-                      </div>
-                      <div className={s.stroke} />
-                    </div>
-                  </div>
-                </Link>
-              </Col>
-            </Row>
-          </Col>
-        </Row>
-      </Container>
+                          <p className="mb-0">view more</p>
+                          <div className={`ml-2 ${s.arrowRight}`} />
+                        </Button>
+                      )}
+                    </Link>
+                  </Col>
+                </Row>
+              </Container>
+            </section>
+          </Carousel.Item>
+        ))}
+      </Carousel>
+      <NewArrivals
+        products={products}
+        s={s}
+        addToCart={addToCart}
+        dispatch={dispatch}
+        addToWishlist={addToWishlist}
+        setQuantity={setQuantity}
+        quantity={quantity}
+        arrowRight={arrowRight}
+        openState={openState}
+        rating={rating}
+        toast={toast}
+      />
+      <TopSellingProducts s={s} />
       <InfoBlock />
-      {/* <Container style={{ marginTop: 80, marginBottom: 80 }}>
-        <h3 className={"text-center fw-bold mb-4"}>From Our Blogs</h3>
-        <Row className={"justify-content-center mb-2"}>
-          <Col sm={8}>
-            <p className={"text-center text-muted mb-4"}>
-              Design your home interior story! Here are the latest trends, tips,
-              and design tricks to help you out.
-            </p>
-          </Col>
-        </Row>
-        <Row>
-          <Col
-            xs={12}
-            md={4}
-            className={"mb-4 d-flex flex-column align-items-center"}
-          >
-            <div className={s.imgAnimation}>
-              <Link href="/blog/article/07aeff53-31e5-4276-8307-f855b22b6436">
-                <img src={article1} className={"img-fluid"} />
-              </Link>
-            </div>
-            <p className={"mt-3 text-muted mb-0"}>March 12, 2020</p>
-            <h6
-              className={"fw-bold font-size-base mt-1"}
-              style={{ fontSize: 16 }}
-            >
-              What is Shabby Chic?
-            </h6>
-            <h6 style={{ fontSize: 16 }} className={"fw-bold text-primary"}>
-              <Link href="/blog/article/07aeff53-31e5-4276-8307-f855b22b6436">
-                Read More
-              </Link>
-            </h6>
-          </Col>
-          <Col
-            xs={12}
-            md={4}
-            className={"mb-4 d-flex flex-column align-items-center"}
-          >
-            <div className={s.imgAnimation}>
-              <Link href="/blog/article/c4245ff9-6a53-4b13-8539-0b69b442cfd1">
-                <img src={article2} className={"img-fluid"} />
-              </Link>
-            </div>
-            <p className={"mt-3 text-muted mb-0"}>March 12, 2020</p>
-            <h6
-              className={"fw-bold font-size-base mt-1"}
-              style={{ fontSize: 16 }}
-            >
-              Best Examples of Maximalism
-            </h6>
-            <h6 style={{ fontSize: 16 }} className={"fw-bold text-primary"}>
-              <Link href="/blog/article/c4245ff9-6a53-4b13-8539-0b69b442cfd1">
-                Read More
-              </Link>
-            </h6>
-          </Col>
-          <Col
-            xs={12}
-            md={4}
-            className={"mb-4 d-flex flex-column align-items-center"}
-          >
-            <div className={s.imgAnimation}>
-              <Link href="/blog/article/57fbad3f-528a-43b2-83e8-32ba30708194">
-                <img src={article3} className={"img-fluid"} />
-              </Link>
-            </div>
-            <p className={"mt-3 text-muted mb-0"}>March 12, 2020</p>
-            <h6
-              className={"fw-bold font-size-base mt-1"}
-              style={{ fontSize: 16 }}
-            >
-              What is Lorem Ipsum?
-            </h6>
-            <h6 style={{ fontSize: 16 }} className={"fw-bold text-primary"}>
-              <Link href="/blog/article/57fbad3f-528a-43b2-83e8-32ba30708194">
-                Read More
-              </Link>
-            </h6>
-          </Col>
-        </Row>
-        <Row className={"d-flex justify-content-center"}>
-          <Link href={"/blog"}>
-            <Button
-              outline
-              color="primary"
-              className={"text-uppercase mx-auto mt-5 fw-bold"}
-            >
-              view more
-            </Button>
-          </Link>
-        </Row>
-      </Container> */}
+      {/* <FromOurBlogs
+        s={s}
+        article1={article1}
+        article2={article2}
+        article3={article3}
+      /> */}
       <InstagramWidget />
     </>
   );
