@@ -1,17 +1,10 @@
-const hostApi =
-  process.env.NODE_ENV === "development"
-    ? "http://localhost"
-    : "https://flatlogic-ecommerce-backend.herokuapp.com";
-const portApi =
-  process.env.NODE_ENV === "development" ? "8081" : '';
-const baseURLApi = `${hostApi}:${portApi}/api`;
+const baseURLApi = process.env.NEXT_PUBLIC_API_URL;
 
 export default {
-  hostApi,
-  portApi,
   baseURLApi,
-  remote: "https://flatlogic-ecommerce-backend.herokuapp.com/api/:41521",
-  isBackend: process.env.REACT_APP_BACKEND,
+  hostApi: baseURLApi,
+  remote: baseURLApi,
+  isBackend: process.env.NEXT_PUBLIC_BACKEND,
   app: {
     colors: {
       dark: "#002B49",
