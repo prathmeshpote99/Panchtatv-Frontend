@@ -1,6 +1,6 @@
 import React from "react";
 import { Container, Row, Col, Button } from "reactstrap";
-import s from "../Faq/Faq.module.scss";
+import s from "./Faq.module.scss";
 import Head from "next/head";
 
 const Index = () => {
