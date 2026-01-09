@@ -117,7 +117,7 @@ const NewArrivals = ({
                         <h6 className={"fw-bold text-muted text-uppercase"}>
                           Price
                         </h6>
-                        <h6 className={"fw-bold"}>{item.price}$</h6>
+                        <h6 className={"fw-bold"}>{item.price}₹</h6>
                       </div>
                     </div>
                     <div className={"d-flex mt-5"}>
@@ -221,7 +221,7 @@ const NewArrivals = ({
                       </h6>
                     </a>
                   </Link>
-                  <h6 style={{ fontSize: 16 }}>${item.price}</h6>
+                  <h6 style={{ fontSize: 16 }}>₹{item.price}</h6>
                 </div>
               </div>
             </Col>
@@ -267,9 +267,9 @@ const NewArrivals = ({
                 <h2
                   className={"text-muted mr-3 mb-0 d-flex align-items-center"}
                 >
-                  <del>$ 140,56</del>
+                  <del>₹ 140,56</del>
                 </h2>
-                <h1 className={"text-primary fw-bold mb-0"}>$ 70</h1>
+                <h1 className={"text-primary fw-bold mb-0"}>₹ 70</h1>
               </section>
             </Col>
           </Row>
