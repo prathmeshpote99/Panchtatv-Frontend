@@ -282,7 +282,7 @@ const Index = ({ products: serverSideProducts }) => {
         rating={rating}
         toast={toast}
       />
-      <TopSellingProducts s={s} />
+      {/* <TopSellingProducts s={s} /> */}
       <InfoBlock />
       {/* <FromOurBlogs
         s={s}

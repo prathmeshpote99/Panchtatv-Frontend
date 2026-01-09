@@ -105,7 +105,7 @@ const InfoBlock = () => {
   }, []);
 
   return (
-    <>
+    <div className="mt-5">
       <hr />
       <div className={s.info}>
         <Container className="h-100">
@@ -146,7 +146,7 @@ const InfoBlock = () => {
         </Container>
       </div>
       <hr />
-    </>
+    </div>
   );
 };
 

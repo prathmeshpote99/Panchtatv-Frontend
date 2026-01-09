@@ -2,7 +2,7 @@ import React, { useEffect, useRef, useState } from "react";
 import { gsap } from "gsap";
 import s from "../../index.module.scss";
 
-const TARGET_DATE = new Date("2025-12-31T23:59:59").getTime();
+const TARGET_DATE = new Date("2026-05-31T23:59:59").getTime();
 
 const Countdown = () => {
   const [time, setTime] = useState({
