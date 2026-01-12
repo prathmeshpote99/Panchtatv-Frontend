@@ -65,7 +65,7 @@ const Footer = () => {
             </div>
 
             <div className={s.socialLinks}>
-              <Link href="https://flatlogic.com/" passHref legacyBehavior>
+              <Link href="https://panchtatv.vercel.app/" passHref legacyBehavior>
                 <a
                   className={s.socialLink}
                   target="_blank"

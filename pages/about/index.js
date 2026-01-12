@@ -1,7 +1,7 @@
 import React from "react";
 import { Container, Row, Col } from "reactstrap";
-import img1 from "public/images/e-commerce/about/img1.png";
-import img2 from "public/images/e-commerce/about/img2.png";
+import img1 from "public/images/e-commerce/about/img3.png";
+import img2 from "public/images/e-commerce/about/img4.png";
 import s from "./About.module.scss";
 import Head from "next/head";
 
@@ -133,8 +133,8 @@ const Index = () => {
                   Ancient Wisdom for Modern Living
                 </h4>
                 <p className="text-muted" style={{ width: "93%" }}>
-                  Our organic powders are designed for today’s lifestyle—easy to
-                  consume, versatile, and effective. Whether mixed into
+                  Our organic powders are designed for today’s lifestyle - easy
+                  to consume, versatile, and effective. Whether mixed into
                   smoothies, meals, or daily routines, Panchtatv supports
                   balance, energy, and holistic wellness.{" "}
                 </p>
