@@ -16,7 +16,7 @@ const Footer = () => {
         <Row className="justify-content-between">
           <Col xl={5} md={5}>
             <h5 className="text-white fw-bold">Many desktop publishing</h5>
-            <p className="text-muted mt-3">
+            <p className="text-white mt-3">
               Do you want to receive exclusive email offers? Subscribe to our
               newsletter! Get a special 20% discount code delivered straight to
               your inbox within minutes.
@@ -65,7 +65,11 @@ const Footer = () => {
             </div>
 
             <div className={s.socialLinks}>
-              <Link href="https://panchtatv.vercel.app/" passHref legacyBehavior>
+              <Link
+                href="https://panchtatv.vercel.app/"
+                passHref
+                legacyBehavior
+              >
                 <a
                   className={s.socialLink}
                   target="_blank"
@@ -127,7 +131,7 @@ const Footer = () => {
                 </h5>
 
                 <Link href="/about" passHref legacyBehavior>
-                  <a className={`${s.navigationLink} mb-3 d-block`}>
+                  <a className={`${s.navigationLink} text-white mb-3 d-block`}>
                     What We Do
                   </a>
                 </Link>
@@ -139,7 +143,9 @@ const Footer = () => {
                 </Link> */}
 
                 <Link href="/faq" passHref legacyBehavior>
-                  <a className={`${s.navigationLink} mb-3 d-block`}>FAQs</a>
+                  <a className={`${s.navigationLink} text-white mb-3 d-block`}>
+                    FAQs
+                  </a>
                 </Link>
               </Col>
 
@@ -149,7 +155,9 @@ const Footer = () => {
                 </h5>
 
                 <Link href="/login" passHref legacyBehavior>
-                  <a className={`${s.navigationLink} mb-3 d-block`}>Sign In</a>
+                  <a className={`${s.navigationLink} text-white mb-3 d-block`}>
+                    Sign In
+                  </a>
                 </Link>
 
                 {/* <Link href="/cart" passHref legacyBehavior>
@@ -159,7 +167,7 @@ const Footer = () => {
                 </Link> */}
 
                 <Link href="/contact" passHref legacyBehavior>
-                  <a className={`${s.navigationLink} mb-3 d-block`}>
+                  <a className={`${s.navigationLink} text-white mb-3 d-block`}>
                     Help & Support
                   </a>
                 </Link>
@@ -171,13 +179,13 @@ const Footer = () => {
                 </h5>
 
                 <Link href="/contact" passHref legacyBehavior>
-                  <a className={`${s.navigationLink} mb-3 d-block`}>
+                  <a className={`${s.navigationLink} text-white mb-3 d-block`}>
                     Help & Contact Us
                   </a>
                 </Link>
 
                 <Link href="/termsandconditions" passHref legacyBehavior>
-                  <a className={`${s.navigationLink} mb-3 d-block`}>
+                  <a className={`${s.navigationLink} text-white mb-3 d-block`}>
                     Terms & Conditions
                   </a>
                 </Link>
@@ -190,7 +198,7 @@ const Footer = () => {
 
         <Row style={{ padding: "30px 0" }}>
           <Col sm={12}>
-            <p className="text-muted mb-0">© {new Date().getFullYear()}</p>
+            <p className="text-white mb-0">© {new Date().getFullYear()}</p>
           </Col>
         </Row>
       </Container>
