@@ -441,3 +441,11 @@
     color: theme-color("primary") !important;
   }
 }
+
+.thumbnail {
+  transition: opacity 0.2s ease;
+}
+
+.thumbnail:hover {
+  opacity: 0.8;
+}

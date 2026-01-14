@@ -117,7 +117,16 @@ const Id = ({ product: serverSideProduct, currentProductId }) => {
   const [quantity, setQuantity] = React.useState(1);
   const [fetching, setFetching] = React.useState(true);
   const router = useRouter();
+  const [selectedImage, setSelectedImage] = React.useState(
+    serverSideProduct.image?.[0]
+  );
   const { id } = router.query;
+
+  React.useEffect(() => {
+    if (product?.image?.length) {
+      setSelectedImage(product.image[0]);
+    }
+  }, [product]);
 
   React.useEffect(() => {
     dispatch(feedbackActions.doFetch({}));
@@ -290,29 +299,42 @@ const Id = ({ product: serverSideProduct, currentProductId }) => {
               <ReactImageMagnify
                 {...{
                   smallImage: {
-                    alt: "Wristwatch by Ted Baker London",
+                    alt: product.title,
                     isFluidWidth: true,
-                    src: product.image[0].publicUrl,
+                    src: selectedImage?.publicUrl,
                   },
                   largeImage: {
-                    src: product.image[0].publicUrl,
+                    src: selectedImage?.publicUrl,
                     width: 1200,
                     height: 1200,
                   },
                 }}
-                className={`${product.image.length && "mr-3"}`}
-                enlargedImagePosition={"over"}
+                enlargedImagePosition="over"
               />
-              {product.image.length > 1 ? (
+              {product.image.length > 1 && (
                 <div
                   className={`d-flex flex-column h-100 justify-content-between ${s.dMdNone}`}
                   style={{ width: 160 }}
                 >
-                  <img src={productRight} width={160} alt="productRight" />
-                  <img src={productCenter} width={160} alt="productCenter" />
-                  <img src={productLeft} width={160} alt="productLeft" />
+                  {product.image
+                    .filter((img) => img.id !== selectedImage?.id)
+                    .map((img, index) => (
+                      <img
+                        key={img.id}
+                        src={img.publicUrl}
+                        width={160}
+                        alt={`product-${index}`}
+                        className={s.thumbnail}
+                        style={{
+                          cursor: "pointer",
+                          border: "1px solid #ddd",
+                          padding: 4,
+                        }}
+                        onClick={() => setSelectedImage(img)}
+                      />
+                    ))}
                 </div>
-              ) : null}
+              )}
             </Col>
             <Col
               xs={12}
@@ -619,8 +641,8 @@ const Id = ({ product: serverSideProduct, currentProductId }) => {
               }
             })}
         </Row>
-        <hr />
-        <Row className={"mt-5 mb-5"}>
+        {/* <hr /> */}
+        {/* <Row className={"mt-5 mb-5"}>
           <Col sm={12}>
             <h5 className={"fw-bold"}>You may also like:</h5>
           </Col>
@@ -694,10 +716,10 @@ const Id = ({ product: serverSideProduct, currentProductId }) => {
               <img src={chevronRightIcon} alt={"chevronRightIcon"} />
             </ButtonNext>
           </CarouselProvider>
-        </Row>
+        </Row> */}
       </Container>
-      <InfoBlock />
-      <InstagramWidget />
+      {/* <InfoBlock />
+      <InstagramWidget /> */}
     </>
   );
 };
